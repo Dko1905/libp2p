@@ -1,0 +1,8 @@
+{
+  "name": "libp2p-client",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/Dko1905/libp2p.git",
+  "author": "Daniel Florescu",
+  "license": "ISC"
+}
