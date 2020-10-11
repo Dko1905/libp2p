@@ -4,5 +4,12 @@
   "main": "index.js",
   "repository": "https://github.com/Dko1905/libp2p.git",
   "author": "Daniel Florescu",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "libp2p": "^0.29.0",
+    "libp2p-mplex": "^0.10.0",
+    "libp2p-noise": "^2.0.1",
+    "libp2p-websockets": "^0.14.0",
+    "multiaddr": "^8.0.0"
+  }
 }
