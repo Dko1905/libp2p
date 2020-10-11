@@ -25,9 +25,27 @@ const main = async () => {
 	node.multiaddrs.forEach(addr => {
 		console.log(`${addr.toString()}/p2p/${node.peerId.toB58String()}`)
 	})
+	// Print peer ID
+	console.log("PeerId: ")
+	console.log(node.peerId.toB58String())
 
 	// Ping addresses
 	if(process.argv.length >= 3){
+		// Dial remote peer
+		const [_, err] = await go(node.dial(process.argv[2]))
+		if(err){
+			console.error(`Failed to dial ${process.argv[2]}: ${err.toString()}`)
+			return
+		}
+
+		const [peer, err2] = go(await node1.peerRouting.findPeer(node3.peerId))
+		if(err2){
+			console.error(`Failed to find peer: ${err2.toString()}`)
+			return
+		}
+		console.log(peer)
+
+		/*
 		try{
 			ma = multiaddr(process.argv[2])
 		} catch(e){
@@ -43,7 +61,7 @@ const main = async () => {
 			}
 			console.log(`pinged ${process.argv[2]} in ${latency}ms`)
 			await new Promise(r => setTimeout(r, 1000));
-		}
+		}*/
 	} else{
 		console.log('no remote peer address given, skipping ping')
 	}
